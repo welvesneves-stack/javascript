@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adicionar e remover</title>
+    <link rel="stylesheet" href="creat-remove.css">
+</head>
+
+<body>
+    <main>
+        <h1> Adicionar e Remover</h1>
+        <div class="container">
+            <label for="msg">Escreva e salve qualquer informação na forma de lista:</label><br>
+            <input type="text" name="" id="msg">
+            <div id="btns">
+                <button id="btn">Salvar</button>
+            </div>
+            <div id="lista"></div>
+        </div>
+    </main>
+    <script>
+        let btn = document.getElementById("btn")
+        let btns = document.getElementById("btns")
+        btn.addEventListener("click", clicar)
+
+        function clicar() {
+            let msg = document.getElementById("msg")
+            let lista = document.getElementById("lista")
+            let txt = String(msg.value)
+            let li = document.createElement("li")
+            li.innerHTML = txt
+            lista.appendChild(li)
+            let btn2 = document.createElement("button")
+            btn2.id = "btn2"
+            btn2.innerHTML = "Remover"
+            li.appendChild(btn2)
+            btn2.addEventListener("click", function () { li.remove() })
+
+        }
+
+    </script>
+</body>
+
+</html>

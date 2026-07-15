@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>funções com parametros</title>
+</head>
+<body>
+    <p id="ver">aguardando...</p>
+    <script>
+        let ver= document.getElementById("ver")
+        function paridade(n){
+            if(n%2 == 0){
+                return 'par'
+            }else{
+                return 'ímpar'
+            }
+        }
+        function somar(n1, n2){
+            return n1 + n1
+        }
+        let res1 = somar(5, 9)
+
+        let res = paridade(233)
+        ver.innerHTML = ` é ${res1}`
+        
+    </script>
+</body>
+</html>

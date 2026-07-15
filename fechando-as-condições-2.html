@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>segundo exerçício prático de condições</title>
+    <link rel="stylesheet" href="condições2.css">
+</head>
+
+<body>
+    <main>
+        <h1>Verificador de idade</h1>
+        <div class="container">
+            <div class="item">
+                <label for="idade">Digite sua data de nascimento</label><br>
+                <input type="number" name="" id="idade">
+                <p>Género:</p>
+                <label for="masc">Maculino</label>
+                <input type="radio" name="sexo" id="masc">
+                <label for="fem">Feminino</label>
+                <input type="radio" name="sexo" id="fem"><br>
+                <button id="ver">Verificar</button>
+                <p id="res"></p>
+            </div>
+
+            <div class="imagem">
+                <img id="img" src="IMG_5056.PNG">
+
+            </div>
+            <span>&copy; praticando javascript</span>
+        </div>
+    </main>
+
+    <script>
+  
+        let img = window.document.getElementById("img")
+        let masc = window.document.getElementById("masc")
+        let fem = window.document.getElementById("fem")
+        let res = window.document.getElementById("res")
+
+        ver.addEventListener("click", clicar)
+
+        function clicar() {
+            // a variavel idade deve estar dentro da função por conta da sobreposição
+            let idade = Number(window.document.getElementById("idade").value)
+            let agora = new Date()
+            let anoatual = agora.getFullYear()
+            let anos = Number(anoatual - idade)
+
+            
+             if(!idade && masc.checked == fem.checked ){
+                alert("Preecha os campos antes de verificar")
+                return;
+            }if(masc.checked == fem.checked){
+                alert(" Marque o seu género")
+                return;
+            }if(!idade){
+                alert("Erro! Coloque a data de nascimento")
+                return;
+            }if ( idade < 1500 || idade >= anoatual){
+                alert(`A data de nascimento deve ser maior que 1500 e menor que ${anoatual}`)
+                return;
+            }
+            
+            if(anos < 12 && masc.checked){
+                img.src = "IMG_5048.JPG"
+                res.innerHTML = `Detectamos uma criança de ${anos} anos de idade do sexo masculino.`
+                return;
+            }else if(anos < 12 && fem.checked){
+                img.src = "IMG_5049.JPG"
+                res.innerHTML = `Detectamos uma criança de ${anos} anos de idade do sexo feminino.`
+            }else if(anos < 23 && masc.checked){
+                img.src = "IMG_5054.JPG"
+                res.innerHTML = `Detectamos uma adolescente de ${anos} anos de idade do sexo masculino.`
+            }else if(anos < 23 && fem.checked){
+                img.src = "IMG_5055.JPG"
+                res.innerHTML = `Detectamos uma adolescente de ${anos} anos de idade do sexo feminino.`
+            }else if(anos < 50 && masc.checked){
+                img.src = "IMG_5050.JPG"
+                res.innerHTML = `Detectamos uma jovem de ${anos} anos de idade do sexo masculino.`
+            }else if(anos < 50 && fem.checked){
+                img.src = "IMG_5051.JPG"
+                res.innerHTML = `Detectamos uma jovem de ${anos} anos de idade do sexo feminino.`
+            }else if(anos > 50 && masc.checked){
+                img.src = "IMG_5053.JPG"
+                res.innerHTML = `Detectamos uma idoso de ${anos} anos de idade do sexo masculino.`
+            }else if(anos > 50 && fem.checked){
+                img.src = "IMG_5052.JPG"
+                res.innerHTML = `Detectamos uma idoso de ${anos} anos de idade do sexo feminino.`
+            } 
+        }
+
+    </script>
+</body>
+
+</html>

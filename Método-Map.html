@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+
+<body>
+    <p id="res"></p>
+    <script>
+        let res = document.getElementById("res")
+        function map() {
+            let valores = [1, 2, 3]
+            let resultados = []
+            for (pos of valores) {
+                let dobro = pos * 2
+                resultados.push(dobro)
+            }
+            return resultados
+        }
+        let v = map()
+        res.innerHTML = v
+
+         /*Numa situação onde eu quisesse multiplicar todos valores do
+          meu array por 2 como acima exemplificado; eu teria de primeiro
+          com o (for of) percorrer o array e depois criar uma variavel que 
+          pegasse cada elemento e multiplicasse por 2 daí criar um array vazio 
+          para poder acumular os valores obtidos.*/
+
+          /* é onde entra o map() cuja função é percorrer o array, 
+          transformar e trazer um novo array.*/
+
+          function mapp(){
+            let numeros = [1,2,3]
+           return numeros.map((valor)=>{ // o primeiro retorno é da funtion e o segundo é o obrigatório do map
+                return valor*2
+            })
+        }
+        let v2 = mapp()
+        let res2 = document.createElement("p")
+        res2.innerHTML = v2
+        res.appendChild(res2)
+
+
+        function mappp(){
+            let nomes = ['welves', 'neves', 'betinho']
+           return nomes.map((x)=> {
+           return x.toUpperCase(1)
+                })
+        }
+
+          let nom = mappp()
+        console.log(nom)
+        let nome = "welves"
+
+        console.log(nome[0])
+
+
+          
+
+
+    </script>
+</body>
+
+</html>

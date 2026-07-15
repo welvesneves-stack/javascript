@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exerçício de horas</title>
+</head>
+<body>
+
+    <label for="hora">Digite a hora:</label>
+    <input type="number" name="" id="hora">
+    <button id="btn">ver</button>
+    <p id="res"></p>
+
+    <script>
+        let hr = window.document.getElementById("hora")
+        let res = window.document.getElementById("res")
+        let btn = window.document.getElementById("btn")
+
+        
+
+        btn.addEventListener("click",clicar)
+
+        function clicar(){
+            //como pegar a hora do nosso sistema
+            //primeiro criamos uma outta variavel
+            let agora = new Date()
+            let hora = agora.getHours()
+        if(hora ==""){
+        alert("Digite a hora")
+        }else if(hora < 0 || hora > 23){
+            alert("hora deve estar entre 0 e 23")
+        } else if(hora < 12){
+            res.innerHTML = "Bom dia são " + `${hora} horas`
+        }else if(hora < 18){
+            res.innerHTML = "Boa tarde"
+        }else{
+              res.innerHTML = "Boa noite"
+        }
+    }
+    </script>
+</body>
+</html>

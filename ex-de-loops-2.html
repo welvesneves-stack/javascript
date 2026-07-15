@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loops2.css">
+    <title>Gerador de tabuadas</title>
+</head>
+<body>
+    <main>
+        <h1>Gerador de tabuada</h1>
+        <div class="container">
+            <div>
+                <label for="num">Digite o número de tabuada:</label><br>
+                <input type="number" name="" id="num" placeholder="Ex:. 12"><br>
+                <button id="ger">Gerar tabuada</button>
+            </div>
+            <div>
+                <select name="sel" id="sel" size="10">
+                    <option>Veja a sua tabuada </option>
+                </select>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+        let ger = document.getElementById("ger")
+        ger.addEventListener("click",clicar)
+        function clicar(){
+            let num = document.getElementById("num")
+            let sel = document.getElementById("sel")
+            let n = Number(num.value)
+            let cont = 1
+
+            sel.innerHTML = ""
+
+            while(cont <= 12){
+                let opt = document.createElement('option')
+                opt.text += `${cont} x ${n} = ${cont*n}`
+                sel.appendChild(opt)
+                cont++
+            }
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loops3.css">
+    <title>Gerador de tabuadas</title>
+</head>
+
+<body>
+    <main>
+        <h1>Gerador de fatorial</h1>
+        <div class="container">
+            <div>
+                <label for="num">Digite um número:</label>
+                <input type="number" name="" id="num" placeholder="Ex:. 5! = 120"><br>
+                <p id="res">Esperando...</p>
+                <button id="ger">Gerar fatorial</button>
+            </div>
+        </div>
+    </main>
+    <script>
+
+        let ger = document.getElementById("ger")
+        ger.addEventListener("click", clicar)
+
+
+        function clicar() {
+            let num = document.getElementById("num")
+            let res = document.getElementById("res")
+            let n = Number(num.value)
+            let cont = 1
+
+            res.innerHTML = "1"
+            if (num.value.length == "") {
+                alert("Erro! Não digitou nenhum número!")
+                res.innerHTML = " "
+                return
+            } else {
+                while (cont != n) {
+                    res.innerHTML *= `${n}`
+                    n = n - 1
+                    cont = 1
+                }
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

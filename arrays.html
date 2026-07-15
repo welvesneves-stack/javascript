@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrays</title>
+</head>
+<body>
+
+    <script>
+        let frutas = ["Maçã","Uva"]
+        console.log(`${frutas}`)
+        frutas[2] = "Banana"
+        console.log(`${frutas}`)
+        frutas.push("Laranja")
+        console.log(`${frutas}`)
+
+        console.log(`${frutas.length}`) // serve para dizer quantas posições tem o nosso vetor
+
+        //for(let pos in frutas){
+           // console.log(`Na posição ${pos} temos ${frutas[pos]}`)
+        //}
+        frutas.sort()
+        let pos = 0
+        while(pos < frutas.length){
+             console.log(`Na posição ${pos} temos ${frutas[pos]}`)
+             pos++
+        }
+         console.log(`${frutas.indexOf(7)}`)
+        
+    </script>
+    
+</body>
+</html> 

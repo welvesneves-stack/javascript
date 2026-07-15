@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch case</title>
+</head>
+<body>
+    <button id="button">Dia da semana</button>
+    <p id="p"></p>
+    <script>
+        let res = window.document.getElementById("p")
+        let btn = window.document.getElementById("button")
+        
+        btn.addEventListener("click",clicar)
+
+        function clicar(){
+        let agora = new Date()
+        let dia = agora.getDay()
+        switch(dia){
+            case 1:
+                res.innerHTML = "Domingo"
+                break
+            case 2:
+                res.innerHTML = "segunda"
+                break
+            case 3:
+                res.innerHTML = "terça"
+                break
+            case 4:
+                res.innerHTML = "quarta"
+                break
+            case 5:
+                res.innerHTML = "quinta"
+                break
+            case 6:
+                res.innerHTML = "sexta"
+                break
+            case 7:
+                res.innerHTML = "sábado"
+                break
+            default:
+                res.innerHTML = " Dia inválido! Os dias da semana devem estar entre 1 a 7"
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" condições.css">
+    <title>exerçício prático de condições</title>
+</head>
+<body>
+    <main>
+        <h1>Hora do dia</h1>
+        <div class="container">
+            <p id="res"></p>
+            <div class="imagem">
+                <img id="img1" src="IMG_5046.JPG" alt="IMG_5046">
+                <img id="img2" src="IMG_5045.JPG" alt="IMG_5045">
+                <img id="img3" src="IMG_5047.JPG" alt="IMG_5047">
+            </div>
+            <span>&copy; praticando javascript</span>
+        </div>
+    </main>
+    <script>
+        let agora = new Date()
+       // let hora = agora.getHours()
+        let res = window.document.getElementById("res")
+        let img2 = window.document.getElementById("img2")
+        let img3 = window.document.getElementById("img3")
+        let hora = 1
+
+        if(hora < 12){
+            res.innerHTML = "Bom dia! Agora são " + `${hora} horas.`
+        }else if(hora < 18){
+            res.innerHTML = "Boa tarde! Agora são " + `${hora} horas.`
+            img2.style.zIndex = 1
+            document.body.style.backgroundColor = "rgb(255, 208, 0)"
+        }else{
+            res.innerHTML = "Boa noite! Agora são " + `${hora} horas.`
+            img3.style.zIndex = 1
+            document.body.style.backgroundColor = "rgb(78, 73, 73)"
+        }
+    </script>
+</body>
+</html>

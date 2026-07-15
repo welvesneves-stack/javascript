@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loops.css">
+    <title>criando um contador</title>
+</head>
+
+<body>
+    <main>
+        <h1>Contador</h1>
+        <div>
+            <p class="msg">Veja a contagem de um número qualquer, escolha o ponto de partida, o final e qual deve ser o
+                intervalo de contagem.</p>
+            <label for="ini">Início:</label>
+            <input type="number" name="" id="ini"><br>
+            <label for="fim">Fim:</label>
+            <input type="number" name="" id="fim"><br>
+            <label for="passo">passo:</label>
+            <input type="number" name="" id="passo"><br>
+            <button id="ver">verificar</button>
+            <p id="res"></p>
+            <span>&copy; praticando javascript</span>
+        </div>
+    </main>
+    <script>
+        let ini = document.getElementById("ini")
+        let fim = document.getElementById("fim")
+        let passo = document.getElementById("passo")
+        let res = document.getElementById("res")
+        let ver = document.getElementById("ver")
+
+        ver.addEventListener("click", clicar)
+
+        function clicar() {
+            let ini = Number(document.getElementById("ini").value)
+            let fim = Number(document.getElementById("fim").value)
+            let passo = Number(document.getElementById("passo").value)
+
+            res.innerHTML = " "
+
+            if(!passo && !fim && !ini){
+        alert("Erro! voçê deve preecher todos campos antes de verificar")
+                return
+            }if (!ini) {
+                alert("preencha o campo de início!")
+                return;
+            } if (!fim) {
+                alert("preencha o campo de Fim!")
+                return;
+            } if (!passo) {
+                alert("preencha o campo do passo!")
+            }else{
+                if(ini <= fim){
+                     for (; ini <= fim; ini += passo) {
+                res.innerHTML += "-" + `${ini}`
+            }
+                }else{
+                    
+            for (; fim <= ini; ini -= passo) {
+                res.innerHTML += "-" + `${ini}`
+            }
+                }
+           
+            }
+
+        }
+    </script>
+</body>
+
+</html>

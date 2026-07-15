@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="funções-e-arrays.css">
+    <title>Analisador de números</title>
+</head>
+
+<body>
+    <main>
+        <h1>Analisador de números</h1>
+        <div class="container">
+            <div>
+                <label for="num">Digite um número de 0-100:</label><br>
+                <input type="number" name="" id="num" placeholder="Ex:. 12"><br>
+                <button id="ad">Adicionar</button>
+                <div id="res"></div>
+            </div>
+            <div>
+                <select name="sel" id="sel" size="10">
+                    <option>Digite um número acima </option>
+                </select>
+                <button id="ger">Analisar</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+        let ger = document.getElementById("ger")
+        let ad = document.getElementById("ad")
+        let sel = document.getElementById("sel")
+        let res = document.getElementById("res")
+        let valores = []
+
+
+        ger.addEventListener("click", clicar)
+        ad.addEventListener("click", clicare)
+
+            
+
+        
+        function clicare() {
+            let num = document.getElementById("num")
+            let n = Number(num.value)
+            
+            sel.innerHTML = ""
+            
+            valores.push(n)
+            for(let pos in valores){
+            let opt = document.createElement('option')
+            opt.text += `Valor ${valores[pos]} adicionado`
+            sel.appendChild(opt)
+            }
+        }
+
+        function clicar() {
+
+            res.innerHTML = ""
+
+            valores.sort()
+            let pos = 0
+            let maiorv = 0
+            let soma = 0
+            let menorv = valores[pos]
+            if(`${valores[valores.length-1]}` > maiorv){
+                maiorv = `${valores[valores.length-1]}`
+            }
+
+            
+            while(valores[pos] >= 0){
+                soma += valores[pos]
+                pos++
+            }
+
+
+            let msg = document.createElement('p')
+            msg.innerHTML = `Ao todo temos, ${valores.length} valores adicionados. <br><br>
+            O maior valor informado foi ${maiorv}. <br><br>
+            O menor valor informado foi ${menorv}.<br><br>
+            A soma de todos valores é ${soma}.<br><br>
+            A média dos valores é ${soma/valores.length}`
+            res.appendChild(msg)
+            }
+
+    </script>
+</body>
+
+</html>
