@@ -12,7 +12,7 @@
         console.log(`${frutas}`)
         frutas[2] = "Banana"
         console.log(`${frutas}`)
-        frutas.push("Laranja")
+        frutas.push("Laranja") // o push serve para adicionar um elemento na ultima posição do array
         console.log(`${frutas}`)
 
         console.log(`${frutas.length}`) // serve para dizer quantas posições tem o nosso vetor
@@ -20,13 +20,24 @@
         //for(let pos in frutas){
            // console.log(`Na posição ${pos} temos ${frutas[pos]}`)
         //}
-        frutas.sort()
+        frutas.sort() // o sort serve para colocar em ordem nu erica ou alfabética dos elementos do nosso array
         let pos = 0
         while(pos < frutas.length){
              console.log(`Na posição ${pos} temos ${frutas[pos]}`)
              pos++
         }
          console.log(`${frutas.indexOf(7)}`)
+
+         console.log(`${frutas}`)
+
+         frutas.unshift("Pera") // enquanto o push adiciona no ultimo, o unshift adiciona na primeira posição 
+         console.log(`${frutas}`)
+
+         frutas.pop()
+         console.log(`${frutas}`) // enquanto push adiciona no ultimo, o pop remove na ultima posição
+         
+         frutas.shift()
+         console.log(`${frutas}`) // enquanto pop remove no ultimo o shift remove na primeira posição
         
     </script>
     

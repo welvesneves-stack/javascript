@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método some()</title>
+</head>
+<body>
+    <script>
+
+        let num = [2,38,9,24]
+
+        let maior = num.some(function(valor){
+            return valor > 30
+        })
+        console.log(maior)
+
+        //o some so precisa que um cumpra a condicao proposta
+
+        let produtos = ["Maçã","Banana","Leite","Arroz"]
+
+        let Leite = produtos.some(function(valor){
+            return valor == "Leite"
+        })
+        console.log(Leite)
+    </script>
+</body>
+</html>

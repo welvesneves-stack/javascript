@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método find</title>
+</head>
+<body>
+    <script>
+        let números = [5,18,9,25,14,30]
+
+        let maiores = números.filter(function(valor){
+            return valor > 20
+        })
+
+        console.log(maiores)
+        
+        let maior = números.find(function(valor){
+            return valor > 20
+        })
+
+        console.log(maior)
+
+
+        let comparar = números.find(function(valor){
+            if(valor == 20){
+                return valor
+            }
+        })
+        console.log(comparar)
+
+        let nomes = ["sara","Carlos","João","Pedro","Ana","Paula"]
+        console.log(nomes)
+
+        let p = nomes.find(function(nome){
+            return nome[0] == "P"
+        })
+        console.log(p)
+
+
+        
+        let produtos = ["Banana","maçã","Leite","Pão","Arroz"]
+
+        let produto = nomes.find(function(produto){
+            return produto.length > 5
+        })
+        console.log(produto)
+    </script>
+</body>
+</html>

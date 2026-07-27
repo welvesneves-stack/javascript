@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cofre.css">
+    <title>Cofre</title>
+</head>
+<body>
+    <main>
+           <h1>cofre</h1>
+        <div class="container">
+            <label for="msg">Coloque a correcta senha para abrir:</label><br>
+            <input type="text" name="" id="msg">
+            <div>
+                <button id="btn">abrir</button>
+            </div>
+            <p id="res">Esperando...</p>
+        </div>
+    </main>
+
+    <script>
+        let msg = document.getElementById("msg")
+        let btn = document.getElementById("btn")
+        let res = document.getElementById("res")
+        let senha = "javascript123"
+        let erro = 0
+        btn.disabled = false
+        
+        btn.addEventListener("click",function(){
+            let txt = String(msg.value)
+            if(txt == ""){
+                alert("digite uma senha para abrir")
+                return
+            }
+            if(txt == senha){
+                trocarFundo("blue")
+                mensagens("Cofre aberto")
+            }else{
+                erro += 1
+                res.innerHTML = "Senha incorrecta"
+                if(erro == 3){
+
+                    trocarFundo("red")
+                    mensagens("Atingiu o limite de tentativas")
+                    btn.disabled = true
+                }
+            }
+            msg.value = ""
+        })
+
+
+        function trocarFundo(x){
+            document.body.style.backgroundColor = x
+        }
+        function mensagens(x){
+            res.innerHTML = x
+        }
+ 
+
+    </script>
+</body>
+</html>

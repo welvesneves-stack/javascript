@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando o toggle</title>
+    <link rel="stylesheet" href="toggle.css">
+</head>
+
+<body>
+    <main>
+        <header id="header">
+            <li>Home</li>
+            <li>News</li>
+            <li>Contact</li>
+            <li>FAQ's</li>
+        </header>
+        <div id="menu">MENU</div>
+    </main>
+    <script>
+        let header = document.getElementById("header")
+        let menu = document.getElementById("menu")
+
+        menu.addEventListener("click",function(){
+            menu.classList.toggle("lados")
+            header.classList.toggle("menu")
+            
+        })
+
+    </script>
+</body>
+
+</html>

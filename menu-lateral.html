@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu lateral</title>
+    <link rel="stylesheet" href="Menu.css">
+</head>
+
+<body>
+    <main>
+        <div class="menu">MENU</div>
+        <header>
+            <ol class="links">
+                <li>Home</li>
+                <li>Login</li>
+                <li>Contact</li>
+                <li>FAQ's</li>
+                <li>Dark Mode</li>
+            </ol>
+        </header>
+        <script>
+            let menu = document.querySelector(".menu")
+            let header = document.querySelector("header")
+            let ol = document.querySelector("ol")
+
+            menu.addEventListener("click", function () {
+                header.classList.toggle("abrir")
+            })
+
+            let itens = ol.children
+
+            for (let i = 0; i < itens.length; i++) {
+                let botao = itens[i]
+                botao.addEventListener("click", function (evento) {
+                    // header.classList.remove("abrir")
+                    let touch = evento.target.innerText
+                    if (touch == "Dark Mode") {
+                        modoEscuro()
+                    } else if (document.body.classList.contains("escuro") == true) {
+                        modoClaro()
+                    }
+                })
+            }
+
+            function modoEscuro() {
+                itens[itens.length - 1].innerText = "White Mode"
+                document.body.classList.add("escuro")
+                header.classList.add("escuromenu")
+
+            }
+
+            function modoClaro() {
+                itens[itens.length - 1].innerText = "Dark Mode"
+                document.body.classList.remove("escuro")
+                header.classList.remove("escuromenu")
+            }
+
+
+
+        </script>
+    </main>
+</body>
+
+</html>

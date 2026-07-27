@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="carinho-de-compras.css">
+    <title>Carinho de compras</title>
+</head>
+
+<body>
+    <main>
+        <h1>Carinho de compras</h1>
+        <div class="container">
+            <div id="btns">
+                <button>Maçã</button>
+                <button>Banana</button>
+                <button>Leite</button>
+                <button>Laranja</button>
+            </div>
+            <div class="res">
+                <p id="res">Itens: 0</p>
+                <p id="res1"></p>
+                <p id="res2">Total: 0 MT</p>
+            </div>
+        </div>
+    </main>
+    <script>
+
+        let carinho = []
+        let btns = document.getElementById("btns")
+        let res2 = document.getElementById("res2")
+        let res1 = document.getElementById("res1")
+        let res = document.getElementById("res")
+        let total = 0
+        
+        
+        
+        let itens = btns.children
+        
+        for (let i = 0; i < itens.length; i++) {
+            let botão = itens[i]
+            botão.addEventListener("click", clicar)
+        }
+        
+        function clicar(evento) {
+            
+            let produto = evento.target.innerText
+            carinho.push(produto)
+            exibirNumeroItens(res)
+            mostrarItens(res1)
+            if(produto == "Maçã"){
+                total += 100
+            }else if(produto == "Banana"){
+                total += 80
+            }
+            res2.innerHTML = total
+        }
+
+        function exibirNumeroItens(x){
+            x.innerHTML = "Itens:" + carinho.length
+        }
+        function mostrarItens(x){
+            x.innerHTML = carinho.join("<br>")
+        }
+       
+
+    </script>
+</body>
+
+</html>

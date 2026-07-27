@@ -1,0 +1,21 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Reduce</title>
+</head>
+<body>
+    <script>
+        let compras = [100,250,50,300]
+        let pagamento = compras.reduce(function(total,pos){
+            return total + pos
+        },0)
+        console.log(pagamento)
+        
+        let média = pagamento/compras.length
+        
+        console.log(média)
+    </script>
+</body>
+</html>

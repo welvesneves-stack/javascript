@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adicionar e remover</title>
+    <link rel="stylesheet" href="creat-remove.css">
+</head>
+
+<body>
+    <main>
+        <h1> Adicionar e Remover</h1>
+        <div class="container">
+            <label for="msg">Escreva e salve qualquer informação na forma de lista:</label><br>
+            <input type="text" name="" id="msg">
+            <div id="btns">
+                <button id="btn">Salvar</button>
+            </div>
+            <div id="lista"></div>
+        </div>
+    </main>
+    <script>
+        let btn = document.getElementById("btn")
+        let btns = document.getElementById("btns")
+        let lista = document.getElementById("lista")
+ 
+        let btn2 = document.createElement("button")
+        btn2.id = "btn2"
+        btn2.innerHTML = "Remover"
+        btns.appendChild(btn2)
+
+        let editar = false
+
+        btn.addEventListener("click", clicar)
+        btn2.addEventListener("click", remover)
+
+
+
+        function clicar() {
+            let msg = document.getElementById("msg")
+            let txt = String(msg.value)
+            let li = document.createElement("li")
+            li.innerHTML = txt
+            lista.appendChild(li)
+            msg.value = "" // apaga o campo input
+        }
+
+
+        function remover() {
+            if (editar == false) {
+                criarRadio()
+                btn2.innerHTML = "Concluir"
+                editar = true
+            } else {
+                apagarElementos()
+                esconderRadio()
+                editar = false
+            }
+        }
+
+        function criarRadio() {
+            let itens = lista.children
+            for (pos = 0; pos < itens.length; pos++) {
+                let rad = document.createElement("input")
+                rad.name = "radio"
+                rad.type = "radio"
+                itens[pos].appendChild(rad)
+            }
+            /*Nesta função eu disse o seguinte: vou criar uma variavel itens,
+            que vai abrigar todos filhos da classe lista. e para cada filho da 
+            classe lista que é representada por itens vou criar um input do tipo
+            rádio e esse radio estara em cada um dos filho que é o (itens[pos].appendchild.(rad)*/
+        }
+
+        function  apagarElementos(){
+            let itens = lista.children
+            for(let pos = itens.length -1; pos >= 0 ;pos--){
+                let check = itens[pos].lastElementChild
+                if(check.checked){
+                    itens[pos].remove()
+                    btn2.innerHTML = "Remover"
+                }
+                /* let itens = lista.children
+                for(let pos = 0; pos < itens.length ; pos++){
+                    let check = itens[pos].lastElementChild
+                        if(check.checked){
+                         itens[pos].remove()
+                           btn2.innerHTML = "Remover"
+                        }
+                    }
+                }*/
+            }
+            /*Na função apagar elementos, nos voltamos a criar uma variavel 
+            que pega todos os filho da lista, e percoremos os filhos de forma
+             decrentada, ja que ele vai comecar o primeiro elemento da lista e o plano
+              nao é criar é eliminar vamos começar do ultimo cujo tamanho é o número de 
+              todos itens menos uma unidade por conta do zero e para cada um dele vamos 
+              criar um check, mas apenas para o ultimo elemento(não da lista) no caso que
+               é o input e removemos caso o chech ewsteja marcado. */
+        }
+
+        function esconderRadio(){
+            let itens = lista.children
+             for (pos = 0; pos < itens.length; pos++) {
+                let rad = itens[pos].lastElementChild
+                rad.remove()
+             }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        }
+
+    </script>
+</body>
+
+</html>

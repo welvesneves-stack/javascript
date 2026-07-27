@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Every</title>
+</head>
+<body>
+     <script>
+
+        let numeros = [15,18,12,17,20]
+        let verificar = numeros.every(function(valor){
+            return valor >= 10
+        })
+
+        console.log(verificar)
+
+        let numero = [15,18,9,17,20]
+        let verificare = numero.every(function(valor){
+            return valor >= 10
+        })
+
+        console.log(verificare)
+
+        //No every todos devem satisfazer a condicao pra poder retornar true(verdade)
+        //Caso um não cumpra com a condição ele ja considera tudo false
+
+     </script>
+</body>
+</html>
