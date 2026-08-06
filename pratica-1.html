@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>praticando as coleções e outras estruturas de dados</title>
+  </head>
+  <body>
+    <script>
+      let produtos = [
+        { id: 1, nome: "Arroz", preco: 120, categoria: "Alimentos" },
+
+        { id: 2, nome: "Leite", preco: 90, categoria: "Laticínios" },
+
+        { id: 3, nome: "Óleo", preco: 180, categoria: "Alimentos" },
+
+        { id: 4, nome: "Refrigerante", preco: 70, categoria: "Bebidas" },
+
+        { id: 5, nome: "Água", preco: 40, categoria: "Bebidas" },
+
+        { id: 6, nome: "Leite", preco: 90, categoria: "Laticínios" },
+      ];
+      
+      let produtosMap = new Map();
+      for (let produto of produtos) {
+        produtosMap.set(produto.id, produto); // no set usamos o par chave-valor, para adiconarmos o produto no map, podemos usar o id como chave e o objeto produto como valor
+      }
+
+      console.log(produtosMap);
+      
+      for (let [id, produto] of produtosMap) {
+        console.log(`${produto.nome}`);
+      }
+      let maioresque100 = produtos.filter((produto) => produto.preco > 100);
+      console.log(maioresque100);
+
+      let totaldeprodutos = produtos.reduce(function (acumulador, produto) {
+        return acumulador + produto.preco;
+      }, 0);
+      console.log(`${totaldeprodutos} MT`);
+      let maioresque30 = produtos.every(function (produto) {
+        return produto.preco > 30;
+      });
+      console.log(maioresque30);
+      let verProdutomaiorque170 = produtos.some(function (produto) {
+        return produto.preco > 170;
+      });
+      console.log(verProdutomaiorque170);
+
+      let TerNomesunicos = new Set(produtos.map(function(produto) {
+        return produto.nome;
+      })); // nesta linha eu disse o seguinte, crie um novo set com os nomes dos produtos, usando o map para pegar apenas os nomes dos produtos, assim teremos apenas os nomes únicos dos produtos
+      console.log(TerNomesunicos);
+
+    </script>
+  </body>
+</html>

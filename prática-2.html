@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prática-2</title>
+  </head>
+  <body>
+    <script>
+      let nomes = [
+        "Arroz",
+        "Leite",
+        "óleo",
+        "Água",
+        "refrigerante",
+        "Leite",
+        "Arroz",
+      ];
+      let precos = [120, 90, 180, 40, 70, 90, 120];
+
+      for (let pos = 0; pos < nomes.length; pos++) {
+        console.log(`produto: ${nomes[pos]} | preço: ${precos[pos]}`);
+      }
+
+      maiorque100 = precos.filter(function (valor) {
+        return valor > 100;
+      });
+      console.log(maiorque100);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleção map</title>
+</head>
+<body>
+    <script>
+        let animais = new Map()
+        animais.set('cachorro', 'dog')
+        animais.set('gato', 'cat') // Adiciona um par chave-valor ao Map
+        console.log(animais)
+        console.log(animais.get('cachorro')) // Obtém o valor associado à chave 'cachorro'
+        console.log(animais.get('gato')) // Obtém o valor associado à chave 'gato'
+
+        let dados = new Map([
+            ['nome', 'João'],
+            ['idade', 30],
+            ['cidade', 'São Paulo']
+        ])
+        dados.set('profissão', 'Desenvolvedor') // Adiciona um novo par chave-valor
+
+        console.log(dados)
+        console.log(dados.get('nome')) // Obtém o valor associado à chave 'nome'
+        console.log(dados.get('idade')) // Obtém o valor associado à chave 'idade
+
+        let pessoas = new Map([
+            ['João', { idade: 30, cidade: 'São Paulo' }], 
+            ['Maria', { idade: 25, cidade: 'Rio de Janeiro' }],
+            ['Pedro', { idade: 35, cidade: 'Belo Horizonte' }]
+        ])
+
+        let fruta = new Map([
+            ['maçã', { cor: 'vermelha', sabor: 'doce' }],
+            ['banana', { cor: 'amarela', sabor: 'doce' }],
+            ['limão', { cor: 'verde', sabor: 'ácido' }]
+        ])
+        console.log(fruta)
+        console.log(fruta.size) // Obtém o número de elementos no Map
+        console.log(fruta.has('maçã')) // Verifica se a chave 'maçã' existe no Map
+        console.log(fruta.get('banana')) // Obtém o valor associado à chave 'banana
+
+    </script>
+</body>
+</html>

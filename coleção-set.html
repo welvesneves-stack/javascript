@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleção Set</title>
+</head>
+<body>
+    <script>
+        let animais = new Set() // Set é uma coleção de valores únicos
+        animais.add('cachorro') // Adiciona um valor ao Set
+        animais.add('gato') // Adiciona um valor ao Set
+
+        animais.delete('gato') // Remove um valor do Set
+
+        console.log(animais)
+        console.log(animais.has('cachorro')) // Verifica se o valor existe no Set
+        console.log(animais.has('gato')) // Verifica se o valor existe no Set
+
+        for (let animal in animais) {
+            console.log(animais[animal]) // Itera sobre os valores do Set
+        }
+        console.log(animais.size) // Obtém o número de elementos no Set
+
+    </script>
+</body>
+</html>
