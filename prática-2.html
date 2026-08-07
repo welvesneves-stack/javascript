@@ -16,16 +16,69 @@
         "Leite",
         "Arroz",
       ];
+
       let precos = [120, 90, 180, 40, 70, 90, 120];
 
       for (let pos = 0; pos < nomes.length; pos++) {
         console.log(`produto: ${nomes[pos]} | preço: ${precos[pos]}`);
       }
 
-      maiorque100 = precos.filter(function (valor) {
+      let maiorque100 = precos.filter(function (valor) {
         return valor > 100;
       });
+
+      for(let pos = 0; pos < precos.length; pos++){
+        if(precos[pos] > 100){
+          console.log(` ${nomes[pos]}`)
+        }
+      }
+
       console.log(maiorque100);
+
+      let produtosDiferentes = new Set();
+
+      for (let produto in nomes) {
+        produtosDiferentes.add(nomes[produto]);
+      }
+
+      console.log(`existem ${produtosDiferentes.size} produtos diferentes`);
+
+      let maiorque40 = precos.find(function (valor) {
+        return valor > 40;
+      });
+      console.log(maiorque40);
+
+      let produtoigual50 = precos.some(function (valor) {
+        return valor == 50;
+      });
+
+      console.log(produtoigual50);
+
+      let produtosMais30 = precos.every(function (valor) {
+        return valor > 30;
+      });
+
+      console.log(produtosMais30);
+
+      let total = precos.reduce(function (acumulador, valor) {
+        return acumulador + valor;
+      }, 0);
+
+      let Média = total / precos.length;
+
+      console.log(`A soma total dos preços é ${total}.`);
+      console.log(`A Média dos preços é ${Média.toFixed(0)}`);
+
+      let produtos = new Map();
+      for (let pos in nomes) {
+        produtos.set(pos, nomes[pos]);
+      }
+
+      for (let [pos, nomes] of produtos) {
+        console.log(`${pos} - ${nomes}`);
+      }
+
+      console.log(produtosDiferentes);
     </script>
   </body>
 </html>

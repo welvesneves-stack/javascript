@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objectos</title>
+  </head>
+  <body>
+    <script>
+      //Intodução
+
+      let aluno = {
+        nome: "welves",
+        idade: 19,
+        curso: "CIG",
+      };
+
+      console.log(aluno);
+      console.log(typeof aluno);
+      console.log(aluno.nome);
+
+      /*pra criar um objecto usamos as chavetas e dai vamos inserido os nossos dados, fazendo a combinação de propriedade e valor e sem esqueçer de colocar dois pontos e separar com a vírgula*/
+
+      //Manipulação de dados(algumas propriedades)
+
+      let carro = {
+        marca: "toyota",
+        modelo: "corrola",
+        ano: 2014
+      }
+      //vamos alterar o ano 
+
+      carro.ano = 2020
+
+      // vamos adicionar uma propriedade, uma cor para o carro
+
+      carro.cor = "Vermelho"
+
+
+      // agora com o delete vamos eleminar a propriedade modelo
+
+      delete carro.modelo
+
+      console.log(carro)
+
+      //Percorrer objectos -- é a mesma ideia que um array
+
+      let computador = {
+        marca: "HP",
+        memoria: "8GB", 
+        processador: "Intel"
+      }
+
+      for(let componente in computador){
+        console.log(`${componente}: ${computador[componente]}`)
+      }
+      
+    </script>
+  </body>
+</html>

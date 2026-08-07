@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectos de arrays</title>
+</head>
+<body>
+    <script>
+        // os arrays de objectos consistem em criar um array e dentro dele colocar objetos
+        let produtos = [
+            {nome: "arroz", preco: 180}, // esse objeto está na posição 0 do nosso array produtos
+            {nome: "leite", preco: 165},
+            {nome: "manteiga", preco: 90}
+        ]
+
+        console.log(produtos) // para acessar todo nosso array
+
+        console.log(produtos[0]) // vai exibir o objecto que está na primeira posicao
+
+        console.log(produtos[0].nome) // vai exibir  a proriedade nome que existe no objecto que esta na primeira posição do array
+
+        for(let produto of produtos){
+            console.log(produto.nome) // aquí estamos percorrendo o array e querendo ver todos os valores da propriedade nome que estao no array produto
+        }
+
+        let maioresque70 = produtos.filter(function(valor){ // nessa funtion estamos a filtrar no nosso array um preco maior que 70
+            return valor.preco > 70
+        })
+
+
+        console.log(maioresque70)
+        
+        for(let prod of maioresque70){ // e nesta estamos percorrendo maioresque70 para poder exibir somente os nomes nao o objecto todo
+            console.log(prod.nome)
+        }
+
+    </script>
+</body>
+</html>
