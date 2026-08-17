@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>desfio 2</title>
+  </head>
+  <body>
+    <script>
+      
+      let compras = [
+        { cliente: "welves", produto: "mouse", quantidade: 3, preco: 200 },
+        { cliente: "ken", produto: "monitor", quantidade: 1, preco: 4000 },
+        { cliente: "gil", produto: "teclado", quantidade: 2, preco: 500 },
+        { cliente: "welves", produto: "mouse", quantidade: 5, preco: 1000 },
+        { cliente: "nungo", produto: "ssd", quantidade: 1, preco: 3000 },
+      ];
+
+      console.log("========== LOJA ONLINE ==========");
+      console.log("");
+      console.log("CLIENTES");
+      console.log("");
+
+      let NomeDeClientes = new Set();
+
+      for (let usuario of compras) {
+        NomeDeClientes.add(usuario.cliente);
+      }
+      for (let nome of NomeDeClientes) {
+        console.log(nome);
+      }
+      console.log("-------------------------------------");
+
+      let precos = compras.map((valor) => {
+        return valor.preco * valor.quantidade;
+      });
+
+      let totalVendido = precos.reduce((acumulador, valor) => {
+        return acumulador + valor;
+      }, 0);
+
+      console.log("Valor Total vendido:");
+      console.log("");
+      console.log(totalVendido);
+      console.log("-------------------------------------");
+
+      console.log("Produto mais vendido");
+      console.log("");
+
+      let quantidademaisvendida = new Map();
+
+      for (let cliente of compras) {
+        if (quantidademaisvendida.has(cliente.produto)) {
+          let quantidadeActual =
+            quantidademaisvendida.get(cliente.produto) || 0;
+          quantidademaisvendida.set(
+            cliente.produto,
+            quantidadeActual + cliente.quantidade,
+          );
+        } else {
+          quantidademaisvendida.set(cliente.produto, cliente.quantidade);
+        }
+      }
+
+      let produtoMaisVendido = 0;
+      let produto = "";
+
+      for (let [chave, valor] of quantidademaisvendida) {
+        if (valor > produtoMaisVendido) {
+          produtoMaisVendido = valor;
+          produto = chave;
+        }
+      }
+
+      console.log(produto);
+      console.log(produtoMaisVendido);
+      
+       /*para saber o produto mais vendido, primeiro criamos uma colecao map, onde a chave seria o produto e a chave a quantidade,
+       depois e percoremos o nosso array de compras para poder adicionar os dados dentro do map, primeiro comecei verificando se na 
+       colecao existe um produto e a sua respectiva quantidade, caso exista, ele cria uma nova variavel que vai armazenar o valor existente na colecao,
+       e depois vai adicionar na colecao mais antes deve somar as quantidades, e se nao existir ele guarda directamente sem nenhuma soma, dai pra saber
+       qual e o produto mais vendido percorremos a nossa colecao e ja que e um map deve ter chave e valor como parametro e tambem criei duas variaveis para para usar na comparacao */
+
+      console.log("-------------------------------------");
+      console.log("Cliente que mais gastou")
+      console.log("")
+
+      let ClienteMaisgastou = new Map()
+
+      for(let cliente of compras){
+        if(ClienteMaisgastou.has(cliente.cliente , cliente.preco*cliente.quantidade)){
+            let gastoactual = ClienteMaisgastou.get(cliente.cliente) || 0
+            ClienteMaisgastou.set(
+                cliente.cliente,
+                cliente.quantidade*cliente.preco + gastoactual
+            )
+        }else{
+            ClienteMaisgastou.set(cliente.cliente , cliente.preco*cliente.quantidade)
+        }
+      }
+
+      let clientegastou = 0
+      let nomeclientegasto = ""
+
+      for(let [chave , valor] of ClienteMaisgastou){
+        if(valor > clientegastou){
+            clientegastou = valor
+            nomeclientegasto = chave
+        }
+      }
+
+      console.log(nomeclientegasto)
+      console.log(clientegastou)
+      console.log("-------------------------------------")
+
+
+      console.log("Média das compras");
+      console.log("");
+
+      let media = totalVendido / NomeDeClientes.size;
+
+      console.log(media);
+      console.log("-------------------------------------");
+
+      console.log("Produtos vendidos");
+      console.log("");
+
+      let produtos = new Set();
+
+      for (let produto of compras) {
+        produtos.add(produto.produto);
+      }
+      for (let produto of produtos) {
+        console.log(produto);
+      }
+    </script>
+  </body>
+</html>

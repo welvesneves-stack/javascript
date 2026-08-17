@@ -35,6 +35,35 @@
             console.log(prod.nome)
         }
 
+        //exercício
+
+        let alunos = [
+            {nome: "welves", nota: 14},
+            {nome: "joão", nota: 12},
+            {nome: "maria", nota: 18},
+            {nome: "pedro", nota: 16}
+        ]
+
+
+        for( let situacao of alunos){
+            console.log(`${situacao.nome} tirou ${situacao.nota}`)
+        }
+        
+            let maioresque16 = alunos.filter((valor)=>{
+                return valor.nota > 15
+            })
+
+            for(let nomesdos16 of maioresque16){
+                console.log(nomesdos16.nome)
+            }
+
+            let desconto = produtos.map((valor)=>{ // o map percorre o array e devolve um novo array alterado
+                return valor.preco - 10
+            })
+
+            console.log(desconto)
+        
+        
     </script>
 </body>
 </html>

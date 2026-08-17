@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini-sidtema de biblioteca</title>
+  </head>
+  <body>
+    <script>
+      console.log("===============SISTEMA DE BIBLIOTECA==============");
+      console.log("");
+      console.log("");
+      console.log("--------------------------------------------------");
+      console.log("Livros");
+      let livros = [];
+      
+
+      function adicionarLivro(id, Título, Autor, Ano, Status) {
+        if (
+          id == "" ||
+          Título == "" ||
+          Autor == "" ||
+          Ano == "" ||
+          Status == ""
+        ) {
+          console.log(
+            "!ERRO.Para adicionar um livro é necessário preencher todos os dados.",
+          );
+          console.log(
+            "EX:. id: 1110 , Título: morcego, Autor: welves, Ano: 2007 , Status: Disponivel",
+          );
+          return;
+        }
+        livros.push({
+          id: id,
+          Título: Título,
+          Autor: Autor,
+          Ano: Ano,
+          Status: Status,
+        });
+      }
+
+      adicionarLivro(
+        20089,
+        "As-Andorinhas",
+        "Paulina-Chiziane",
+        2004,
+        "Disponivel",
+      );
+      adicionarLivro(20090, "Mayombe", "Pepetela", 1987, "Disponivel");
+      adicionarLivro(
+        20091,
+        "Vozes-anoitecidas",
+        "Mia-Couto",
+        2025,
+        "Disponivel",
+      );
+      adicionarLivro(20092, "Cronicando", "Mia-Couto", 2000, "Disponivel");
+
+      for (let livro of livros) {
+        console.log(`${livro.Título}`);
+      }
+      console.log("--------------------------------------------------");
+      function RemoverLivro(Título, id) {
+        let pos = livros.findIndex((livro) => {
+          return livro.Título == Título; // para poder remover usando o título
+        });
+        if (
+          Título !=
+          livros.map((livro) => {
+            return livro.Título;
+          })
+        ) {
+          console.log("!ERRO");
+          console.log(
+            "Para eliminar um livro, voce de colocar o titulo do livro",
+          );
+          console.log("EX:. RemoverLivro(As-Andorinhas)");
+        } else {
+          livros.splice(pos, 1);
+        }
+      }
+      RemoverLivro();
+
+      console.log("--------------------------------------------------");
+      function emprestarLivro(Título) {
+        for (let livro of livros) {
+          if (Título == livro.Título) {
+            livro.Status = "Emprestado";
+          }
+        }
+      }
+      emprestarLivro("Mayombe");
+      emprestarLivro("As-Andorinhas");
+      console.log("--------------------------------------------------");
+      function DevolverLivro(Título) {
+        for (let livro of livros) {
+          if (Título == livro.Título) {
+            livro.Status = "Disponivel";
+          }
+        }
+      }
+      console.log("--------------------------------------------------");
+      function pesqusarPorTitulo(Título) {
+        let resultado = livros.filter((res) => {
+          return res.Título == Título;
+        });
+
+        for (let pesquisa of resultado) {
+          if (Título != pesquisa.Título) {
+            console.log("!ERRO");
+            console.log("Não foi encontrado nenhum livro com esse Título.");
+            return;
+          }
+          console.log(`Resultado da pesquisa::`);
+          console.log(`${resultado.length} resutado encontrado.`);
+          console.log("======================================");
+          console.log(`Ano: ${pesquisa.Ano}`);
+          console.log(`Autor: ${pesquisa.Autor}`);
+          console.log(`Id: ${pesquisa.id}`);
+          console.log(`Título: ${pesquisa.Título}`);
+          console.log(`Status: ${pesquisa.Status}`);
+          console.log("======================================");
+        }
+      }
+      pesqusarPorTitulo("Mayombe");
+      //pesquisa por autor
+      function pesqusarPorautor(Autor) {
+        let resultado = livros.filter((res) => {
+          return res.Autor == Autor;
+        });
+        console.log(`Resultado da pesquisa::`);
+        console.log(`${resultado.length} resutados encontrados.`);
+
+        for (let pesquisa of resultado) {
+          if (Autor != pesquisa.Autor) {
+            console.log("!ERRO");
+            console.log("Não foi encontrado nenhum Autor com esse nome.");
+            return;
+          }
+          console.log("======================================");
+          console.log(`Ano: ${pesquisa.Ano}`);
+          console.log(`Autor: ${pesquisa.Autor}`);
+          console.log(`Id: ${pesquisa.id}`);
+          console.log(`Título: ${pesquisa.Título}`);
+          console.log(`Status: ${pesquisa.Status}`);
+        }
+      }
+
+      pesqusarPorautor("Mia-Couto");
+
+      console.log("--------------------------------------------------");
+      //livros emprestados
+      let LivrosEmprestados = livros.filter((livro) => {
+        return livro.Status == "Emprestado";
+      });
+      console.log("Livros emprestados::");
+      for (let livro of LivrosEmprestados) {
+        console.log(livro.Título);
+      }
+      console.log("--------------------------------------------------");
+      //livros disponiveis
+      let LivrosDisponiveis = livros.filter((livro) => {
+        return livro.Status == "Disponivel";
+      });
+      console.log("Livros Disponiveis::");
+      for (let livro of LivrosDisponiveis) {
+        console.log(livro.Título);
+      }
+
+      //total de livros
+
+      console.log("--------------------------------------------------");
+      let totalDelivros = livros.length;
+      console.log("Total de livros::");
+      console.log(`Temos ${totalDelivros} livros no Total.`);
+
+      console.log("--------------------------------------------------");
+      //Autor com mais livros
+      console.log("Autor com mais livros::")
+      let quantidadeDeLivros = new Map()
+      for(let livro of livros){
+        if(quantidadeDeLivros.has(livro.Autor)){
+          let quantidadeActual = quantidadeDeLivros.get(livro.Autor)
+          quantidadeDeLivros.set(
+            livro.Autor ,
+             quantidadeActual + 1
+          )
+        }else{
+          quantidadeDeLivros.set(
+            livro.Autor ,
+            1
+          )
+        }
+      }
+      let AutorMaisLivros = 0 // guarda o número de livros do autor
+      let NomeAutormaisLivros = ""
+      for(let [chave , valor] of quantidadeDeLivros){
+        if(valor > AutorMaisLivros){
+          AutorMaisLivros = valor
+          NomeAutormaisLivros = chave
+        }
+      }
+      console.log(NomeAutormaisLivros)
+      console.log(AutorMaisLivros)
+      console.log("--------------------------------------------------");
+      //Livro mais antigo
+
+      let LivrosAntigos = new Map();
+      let anos = [];
+
+      for (let livro of livros) {
+        LivrosAntigos.set(livro.Ano, livro.Título);
+      }
+      for (let [chave, valor] of LivrosAntigos) {
+        anos.push(chave);
+      }
+
+      let menor = anos[0];
+      for (let pos = 1; pos < anos.length; pos++) {
+        if (anos[pos] < menor) {
+          menor = anos[pos];
+        }
+      }
+      let LivroMaisAntigo = LivrosAntigos.get(menor);
+      console.log("Livro mais antigo");
+      console.log(LivroMaisAntigo);
+    </script>
+  </body>
+</html>

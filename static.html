@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static</title>
+</head>
+<body>
+    <script>
+        class funcionario {
+            // a propriedade static serve para criar funcoes que pertecem a classe nao aos objectos
+            // nesse caso usamos para saber a quantidade de funcionarios dessa classe
+        
+            static quantidade = 0
+            constructor(nome , salario){
+                this.nome = nome
+                this.salario = salario
+
+                funcionario.quantidade++ //aqui e o contador ou incremento
+            }
+        }
+
+        let funcionario1 = new funcionario("welves" , "2000")
+        let funcionario2 = new funcionario("Paulo" , "1500")
+        let funcionario3 = new funcionario("vanessa" , "3000")
+
+        console.log(funcionario.quantidade)
+
+    </script>
+</body>
+</html>

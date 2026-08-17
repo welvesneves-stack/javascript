@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Herança e polimorfismo</title>
+  </head>
+  <body>
+    <script>
+      class pessoa {
+        constructor(Nome, Idade) {
+          this.Nome = Nome;
+          this.Idade = Idade;
+        }
+        falar() {
+          console.log(`bom dia`);
+        }
+      }
+
+      /*Ou seja, criamos uma classe superior, e depois estendemos para um filho que é aluno.*/
+      //class aluno extends pessoa{} so isso permite que o aluno use as propriedades do pai
+      class aluno extends pessoa {
+        //mas tbm temos a possibilidade de o aluno tiver outras propriedades para além daquelas da pessoa
+        constructor(Nome, Idade, curso) {
+          super(Nome, Idade);
+          this.curso = curso;
+        }
+        falar() {
+          return "boa tarde";
+        }
+      }
+      class professor extends pessoa {
+        constructor(Nome, Idade, Área) {
+          super(Nome, Idade);
+          this.Área = Área;
+        }
+        falar() {
+          return "boa noite";
+        }
+      }
+
+      let professor1 = new professor("welves", 39, "Alga");
+      console.log(professor1);
+
+      //mas tbm temos a possibilidade de o aluno tiver outras propriedades para além daquelas da pessoa
+
+      let aluno1 = new aluno("vasco", 20, "Contabilidade");
+      console.log(aluno1.falar()); // ira exibir bom dia, pois, é o que está definido no nosso método
+      //mas e se quisermos sobrescrever o método criado na nossa classe pessoa?
+      // no nosso filho e alteramos directamente    falar(){console.log(`boa tarde`)} agora ele vai exibir boa tarde pois houve uma subscricao
+      console.log(professor1.falar());
+
+      class funcionario {
+        constructor(Nome, Salario) {
+          this.Nome = Nome;
+          this.Salario = Salario;
+        }
+      }
+
+      class programador extends funcionario{
+        constructor(Nome , Salario, Linguagem){
+            super(Nome, Salario)
+            this.Linguagem = Linguagem
+        }
+         informacao(){
+            return `${this.Nome} recebe ${this.Salario} programa em ${this.Linguagem}`
+        }
+      }
+
+      class design extends funcionario{
+        constructor(Nome , Salario , ferramenta){
+            super(Nome , Salario)
+            this.ferramenta = ferramenta
+        }
+         informacao(){
+            return `${this.Nome} recebe ${this.Salario} trabalha com ${this.ferramenta}`
+        }
+      }
+
+      let programdor1 = new programador(
+        "ted",
+        20,
+        "Phyton"
+    )
+    let design1 = new design(
+        "tomas" ,
+        32 ,
+    "Adobe"    )
+    console.log(programdor1.informacao())
+    console.log(design1.informacao())
+      
+
+    </script>
+  </body>
+</html>

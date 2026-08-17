@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+</head>
+<body>
+    <script>
+        /*Vamos aprender classes que sao o nosso molde para os nossos objectos*/
+
+        class aluno {
+            constructor(Nome , Idade , Curso){
+
+                this.Nome = Nome // o primeiro nome é do construtor , e o segundo é a propriedade do objeto onde ele deve ficar
+                this.Idade = Idade
+                this.Curso = Curso
+            }
+            estudar(){
+                console.log(`O ${this.Nome} tem ${this.Idade} anos de idade.`) // mas tbm podemos criar funcoes dentro do nosso molde n  
+            }
+        }
+
+        let aluno1 = new aluno(
+            "Welves",
+            20 ,
+            "CIG"
+        )
+        console.log(aluno1.estudar())
+    </script>
+</body>
+</html>

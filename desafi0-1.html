@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desafio 1</title>
+</head>
+<body>
+    <script>
+        let contas = [
+            {numero: 1001, nome: "welves" , saldo:1200},
+            {numero: 1002, nome: "paula" , saldo: 500},
+            {numero: 1003, nome: "joana" , saldo: 2500},
+            {numero: 1004, nome: "ana" , saldo: 300},
+            {numero: 1005, nome: "maria" , saldo: 4000}
+        ]
+
+        let user = new Map()
+        for(let usuario of contas){
+            user.set(usuario.numero , usuario)
+        }
+        console.log(user.get(1001))
+
+        let nomesClientes = new Set()
+        for(let nome of contas){
+            nomesClientes.add(nome.nome)
+        }
+
+        console.log(nomesClientes)
+
+    let contasMaiores1000 = contas.filter((valor)=>{
+        return valor.saldo > 1000
+    })
+
+    console.log(contasMaiores1000)
+
+    let ana = contas.find((valor)=>{
+        return valor.nome == "ana"
+    })
+
+    console.log(ana)
+
+    let saldos = contas.map((valor)=>{
+        return valor.saldo
+    })
+
+    console.log(saldos)
+
+    let totalDoBanco = saldos.reduce((acumulador, valor)=>{
+        return acumulador + valor
+    }, 0)
+
+    console.log(totalDoBanco)
+
+    let saldoNegativo = contas.every(( valor)=>{
+        return valor.saldo < 100
+    })
+
+    console.log(saldoNegativo)
+
+    // função de levantamemto
+
+
+    function levantar(numerodaconta , valor){  // nesta função primeiro eu dei os parametros que preciso para fazer um levantamento que é o número da conta e depois o valor, daí´criei uma variável conta onde vai ficar a conta do usuário que queira levantar
+        let conta = contas.find((usuario)=>{
+
+        return usuario.numero == numerodaconta
+    })
+        if(conta.saldo <= valor){
+            console.log("saldo insuficiente")
+            return;
+        }else{
+            conta.saldo -= valor
+            console.log(`Levantamento de ${valor} feito com sucesso!  na conta número: ${conta.numero}, pertecente á ${conta.nome}. O teu novo saldo é de ${conta.saldo}.`)
+        }
+
+    }
+
+    levantar(1001, 900)
+
+    // funtion de depósito
+
+    function depositar(numeroDaconta , valor){
+        let conta = contas.find((usuario)=>{
+            return usuario.numero == numeroDaconta
+        })
+
+        if(valor <= 0){
+            console.log("!ERRO. verifique o valor a depositar")
+            return;
+        }else{
+            conta.saldo += valor
+            console.log(`depósito de ${valor} feito com sucesso! na conta número: ${conta.numero}, pertecente á ${conta.nome}. O teu novo saldo é de ${conta.saldo}.`)
+
+        }
+    }
+
+    depositar(1002, 1300)
+
+    //funtion transferencia
+    
+    function tranferir(contaOrigem, contaDestino, valor){
+        let conta = contas.find((usuario)=>{
+            return usuario.numero == contaOrigem
+        })
+        let conta1 = contas.find((usuario)=>{
+            return usuario.numero == contaDestino
+        })
+
+        if(conta ==  undefined || conta1 == undefined){
+            console.log("conta inexistente")
+            return
+        }
+
+        if(conta.saldo < valor){
+            console.log("saldo insuficiente para realizar a transfênçia.")
+            return
+        }
+        
+        conta.saldo -= valor
+        conta1.saldo += valor
+        console.log("")
+        console.log("------------------------------------------------------------------------------")
+        console.log(`tranferênçia: ${valor}`)
+        console.log(`Destino: ${conta.nome} - ${conta.numero}`)
+        console.log(`Saldo: ${conta.saldo}`)
+        console.log("-------------------------------------------------------------------------------")
+        console.log("")
+    }
+    
+    tranferir(1005 , 1003 , 500)
+    tranferir(1009 , 1005 , 50000)
+    
+    console.log(contas)
+
+    </script>
+</body>
+</html> 
