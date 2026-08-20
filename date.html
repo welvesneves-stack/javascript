@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date</title>
+  </head>
+  <body>
+    <script>
+      // usamos o objeto Date para trabalhar com datas e horas
+      // o getDate() retorna o dia do mês (1-31)
+      // o getDay() retorna o dia da semana (0-6)
+      // o getHours() retorna a hora
+      // o getMonth() retorna o mês (0-11)
+      // o getFullYear() retorna o ano com 4 dígitos
+
+      let data = new Date();
+      console.log(`Ano: ${data.getFullYear()}`);
+      console.log(`Mês: ${data.getMonth() + 1}`);
+      console.log(`Dia: ${data.getDate()}`);
+      console.log(`Dia da semana: ${data.getDay()}`);
+      console.log(`Hora: ${data.getHours()}:${data.getMinutes()}:${data.getSeconds()}`);
+    </script>
+  </body>
+</html>
